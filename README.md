@@ -94,7 +94,9 @@ In the above:
 If you run this command, you should get a `target_error_panel.png` that looks
 like this:
 
-<img width="600" align="center" alt="Initial predictions for Condition B" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_b/00984658/target_error_panel.jpg">
+<p align="center">
+<img width="600" alt="Initial predictions for Condition B" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_b/00984658/target_error_panel.jpg">
+</p>
 
 Each row is one of the whitelisted channels you provided; in this case it's one
 row for each of the `DAPI`, `MAP2`, and `NFH` channels. The boxes with the
@@ -128,7 +130,9 @@ Running:
 
 gives us this target error panel:
 
-<img width="400" alt="Initial predictions for Condition E" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_e/00000000/target_error_panel.jpg">
+<p align="center">
+<img width="800" alt="Initial predictions for Condition E" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_e/00000000/target_error_panel.jpg">
+</p>
 
 This is like the error panels above, but it includes more statistics of the
 pixel distribution. Previously, there was one purple box which showed the
@@ -169,12 +173,16 @@ wish to visualize training progress, you can run
 
 You should eventually see a training curve that looks like this:
 
+<p align="center">
 <img width="400" alt="Train curve" src="https://storage.googleapis.com/in-silico-labeling/doc/train/train_curve.png">
+</p>
 
 After 50,000 steps, which takes about a week on a 32-core machine, predictions
 on the eval data should have substantially improved:
 
-<img width="400" alt="Predictions for the Condition E evaluation well (B3) after 50K steps" src="https://storage.googleapis.com/in-silico-labeling/doc/train/B3/00050078/target_error_panel.jpg">
+<p align="center">
+<img width="800" alt="Predictions for the Condition E evaluation well (B3) after 50K steps" src="https://storage.googleapis.com/in-silico-labeling/doc/train/B3/00050078/target_error_panel.jpg">
+</p>
 
 Note, there is a bug in the normalization of the DAPI_CONFOCAL channel causing
 it to have a reduced dynamic range in the ground-truth image. Comparing the
@@ -183,7 +191,9 @@ the reduced dynamic range.
 
 For reference, here's what predictions should look like on the train data:
 
-<img width="400" alt="Predictions for Condition A" src="https://storage.googleapis.com/in-silico-labeling/doc/train/B2/00050659/target_error_panel.jpg">
+<p align="center">
+<img width="800" alt="Predictions for Condition A" src="https://storage.googleapis.com/in-silico-labeling/doc/train/B2/00050659/target_error_panel.jpg">
+</p>
 
 Note, if we train too long the model will eventually overfit on the train data
 and predictions will worsen. This was not an issue in the paper, because there
