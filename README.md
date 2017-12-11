@@ -114,10 +114,10 @@ will show each *z*-depth twice.
 
 Condition E contains a cell type not previously seen by the model (human cancer
 cells), imaged with a transmitted light modality not previously seen (DIC), and
-labeled with a marker not previously seen (CellMask). Thus, we should expect it
-to make poor predictions on Condition E.
+labeled with a marker not previously seen (CellMask).
+We have two wells in our sample data (B2 and B3), so let's use B2 for training and B3 for evaluation.
 
-Running:
+To see how well the model can predict labels on the evaluation dataset *before* training, run:
 
     export BASE_DIRECTORY=/tmp/isl
     bazel run isl:launch -- \
@@ -128,15 +128,15 @@ Running:
       --infer_channel_whitelist DAPI_CONFOCAL,CELLMASK_CONFOCAL \
       --noinfer_simplify_error_panels
 
-gives us this target error panel:
+This should produce this target error panel:
 
 <p align="center">
 <img width="800" alt="Initial predictions for Condition E" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_e/00000000/target_error_panel.jpg">
 </p>
 
 This is like the error panels above, but it includes more statistics of the
-pixel distribution. Previously, there was one purple box which showed the
-medians of the pixel distributions. Now there are four purple boxes which show,
+pixel distribution. Previously, there was one purple-bordered box which showed the
+medians of the pixel distributions. Now there are four purple-bordered boxes which show,
 in order, the mode, median, mean, and standard deviation. There are now three
 boxes with black borders, showing the same error visualization as before, but
 for the mode and mean as well as the median. The white-bordered boxes are a new
@@ -150,7 +150,7 @@ its predictions to be poor. Note, however, there is some transfer of the nuclear
 label even before training.
 
 You can find the input images, consisting of a *z*-stack of 26 images,
-[here](https://storage.cloud.google.com/in-silico-labeling/doc/00000000/input_error_panel.jpg?organizationId=433637338589&_ga=2.57129002.-1478210097.1512785538).
+[here](https://storage.cloud.google.com/in-silico-labeling/doc/00000000/input_error_panel.jpg).
 Warning; It is ~100MB.
 
 ### Training
