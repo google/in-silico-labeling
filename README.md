@@ -48,10 +48,9 @@ README will assume you have it).
 
 ### Data
 
-We'll work with the data sample
-[here](https://storage.googleapis.com/in-silico-labeling/data_sample.zip)
+We'll work with the data sample in [`data_sample.zip`](https://storage.googleapis.com/in-silico-labeling/data_sample.zip)
 (Warning: 2GB download) and a checkpoint from the pre-trained model
-[here](https://storage.googleapis.com/in-silico-labeling/checkpoints.zip). If
+in [`checkpoints.zip`](https://storage.googleapis.com/in-silico-labeling/checkpoints.zip). If
 you have `gsutil` installed, you can also use the commands:
 
     gsutil -m cp gs://in-silico-labeling/checkpoints.zip .
@@ -60,20 +59,14 @@ you have `gsutil` installed, you can also use the commands:
 The rest of this README will assume you've downloaded and extracted these
 archives to `checkpoints/` and `data_sample/`.
 
-## Creating a training and inference binary
-
-To create a Python binary for training and inference, `cd` to the project root
-and execute `bazel build isl:launch`. This will create an executable Python
-binary at `bazel-bin/isl/launch`.
-
 ## Running the pre-trained model.
 
-Training and inference is controlled by the script `isl/launch.py`. We recommend
+Training and inference are controlled by the script `isl/launch.py`. We recommend
 you invoke the script with Bazel (see below), because it will handle dependency
 management for you.
 
 The `checkpoints.zip` file contains parameters from a model trained on
-Conditions A, B, C, and D. To run the model on a sample from Condition A, run
+Conditions A, B, C, and D. To run the model on a sample from Condition B, run
 this command from the project root:
 
     export BASE_DIRECTORY=/tmp/isl
@@ -82,13 +75,13 @@ this command from the project root:
       --mode EVAL_EVAL --metric INFER_FULL --stitch_crop_size 1500 \
       --restore_directory $(pwd)/checkpoints \
       --read_pngs --dataset_eval_directory $(pwd)/data_sample/condition_b_sample \
-      --infer_channel_whitelist DAPI_CONFOCAL,MAP2_CONFOCAL,NFH_CONFOCAL \
+      --infer_channel_whitelist DAPI_CONFOCAL,MAP2_CONFOCAL,NFH_CONFOCAL
 
 In the above:
 
 1.  `BASE_DIRECTORY` is the working directory for the model. It will be created
     if it doesn't already exist, and it's where the model predictions will be
-    written.
+    written. You can set it to whatever you want.
 1.  `alsologtostderr` will cause progress information to be printed to the
     terminal.
 1.  `stitch_crop_size` is the size of the crop for which we'll perform
@@ -101,7 +94,7 @@ In the above:
 If you run this command, you should get a `target_error_panel.png` that looks
 like this:
 
-<img width="400" alt="Initial predictions for Condition B" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_b/00984658/target_error_panel.jpg">
+<img width="600" align="center" alt="Initial predictions for Condition B" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_b/00984658/target_error_panel.jpg">
 
 Each row is one of the whitelisted channels you provided; in this case it's one
 row for each of the `DAPI`, `MAP2`, and `NFH` channels. The boxes with the
@@ -110,12 +103,10 @@ per-pixel distributions). The boxes with the teal borders show the true
 fluorescence images. The boxes with the black borders show errors, with false
 positives in orange and false negatives in blue.
 
-The script will also generate a file called `input_error_panel.png`, which shows
-the 26 input transmitted light images along with auto-encoding predictions and
+The script will also generate a file called [`input_error_panel.png`](https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_b/00984658/input_error_panel.jpg), which shows
+the 26 transmitted light input images along with auto-encoding predictions and
 errors. For this condition, there were only 13 *z*-depths, so this visualization
-shows each *z*-depth twice.
-
-<img width="100" alt="Initial predictions for Condition B" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_b/00984658/input_error_panel.jpg">
+will show each *z*-depth twice.
 
 ## Training the pre-trained model on a new dataset.
 
@@ -192,7 +183,7 @@ the reduced dynamic range.
 
 For reference, here's what predictions should look like on the train data:
 
-[<img width="400" alt="Predictions for Condition A" src="https://storage.googleapis.com/in-silico-labeling/doc/train/B2/00050659/target_error_panel.jpg">](https://storage.googleapis.com/in-silico-labeling/doc/train/B2/00050659/target_error_panel.jpg)
+<img width="400" alt="Predictions for Condition A" src="https://storage.googleapis.com/in-silico-labeling/doc/train/B2/00050659/target_error_panel.jpg">
 
 Note, if we train too long the model will eventually overfit on the train data
 and predictions will worsen. This was not an issue in the paper, because there
