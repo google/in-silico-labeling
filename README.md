@@ -131,8 +131,9 @@ To see how well the model can predict labels on the evaluation dataset *before* 
 This should produce this target error panel:
 
 <p align="center">
-<img width="800" alt="Initial predictions for Condition E" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_e/00000000/target_error_panel.jpg#2">
+<img width="800" alt="Initial predictions for Condition E" src="https://storage.googleapis.com/in-silico-labeling/doc/initial_predictions/condition_e/00000000/target_error_panel_2.jpg">
 </p>
+
 
 This is like the error panels above, but it includes more statistics of the
 pixel distribution. Previously, there was one purple-bordered box which showed the
