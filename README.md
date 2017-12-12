@@ -49,7 +49,7 @@ README will assume you have it).
 ### Data
 
 We'll work with the data sample in [`data_sample.zip`](https://storage.googleapis.com/in-silico-labeling/data_sample.zip)
-(Warning: 2GB download) and a checkpoint from the pre-trained model
+(Warning: 2 GB download) and a checkpoint from the pre-trained model
 in [`checkpoints.zip`](https://storage.googleapis.com/in-silico-labeling/checkpoints.zip). If
 you have `gsutil` installed, you can also use the commands:
 
@@ -150,8 +150,7 @@ its predictions to be poor. Note, however, there is some transfer of the nuclear
 label even before training.
 
 You can find the input images, consisting of a *z*-stack of 26 images,
-[here](https://storage.cloud.google.com/in-silico-labeling/doc/00000000/input_error_panel.jpg).
-Warning; It is ~100MB.
+[here](https://storage.cloud.google.com/in-silico-labeling/doc/initial_predictions/condition_e/00000000/input_error_panel.jpg) (Warning: 100 MB download).
 
 ### Training
 
