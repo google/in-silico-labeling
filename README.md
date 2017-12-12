@@ -178,7 +178,20 @@ You should eventually see a training curve that looks like this:
 </p>
 
 After 50,000 steps, which takes about a week on a 32-core machine, predictions
-on the eval data should have substantially improved:
+on the eval data should have substantially improved.
+You can run this command to generate predictions:
+
+    export BASE_DIRECTORY=/tmp/isl
+    bazel run isl:launch -- \
+      --alsologtostderr --base_directory $BASE_DIRECTORY \
+      --mode EVAL_EVAL --metric INFER_FULL --stitch_crop_size 1500 \
+      --read_pngs --dataset_eval_directory $(pwd)/data_sample/condition_e_sample_B3 \
+      --infer_channel_whitelist DAPI_CONFOCAL,CELLMASK_CONFOCAL \
+      --noinfer_simplify_error_panels
+
+Note, we've dropped the `restore_directory` argument, so the model will run inference using latest checkpoint it finds in `BASE_DIRECTORY`.
+
+Here's what the predictions look like on the evaluation data:
 
 <p align="center">
 <img width="800" alt="Predictions for the Condition E evaluation well (B3) after 50K steps" src="https://storage.googleapis.com/in-silico-labeling/doc/train/B3/00050078/target_error_panel.jpg">
@@ -203,5 +216,5 @@ others.
 ## TODOs
 
 1.  Fix the tests.
-1.  Fix the DAPI_CONFOCAL normalization bug. Note: This bug was introduced after
+1.  Fix the DAPI_CONFOCAL normalization bug for the Condition E data. Note: This bug was introduced after
     data was generated for the paper.
