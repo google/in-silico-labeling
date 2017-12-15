@@ -547,12 +547,6 @@ def infer_single_image(gitapp: controller.GetInputTargetAndPredictedParameters):
   if not gfile.Exists(output_directory()):
     gfile.MakeDirs(output_directory())
 
-  if not FLAGS.restore_directory:
-    # We're probably starting at the same time as a training job, so sleep
-    # a bit to let it get established.
-    logging.info('Sleeping for three minutes')
-    time.sleep(180)
-
   if FLAGS.infer_channel_whitelist is not None:
     infer_channel_whitelist = FLAGS.infer_channel_whitelist.split(',')
   else:

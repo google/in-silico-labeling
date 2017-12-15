@@ -194,15 +194,15 @@ You can run this command to generate predictions:
       --infer_channel_whitelist DAPI_CONFOCAL,CELLMASK_CONFOCAL \
       --noinfer_simplify_error_panels
 
-Note, we've dropped the `restore_directory` argument, so the model will run inference using latest checkpoint it finds in `BASE_DIRECTORY`.
+Note, we've dropped the `restore_directory` argument, so the model will run inference using the latest checkpoint it finds in `BASE_DIRECTORY`.
 
-Here's what the predictions look like on the evaluation data:
+Here's what the predictions should look like on the evaluation data:
 
 <p align="center">
 <img width="800" alt="Predictions for the Condition E evaluation well (B3) after 50K steps" src="https://storage.googleapis.com/in-silico-labeling/doc/train/B3/00050078/target_error_panel.jpg">
 </p>
 
-Note, there is a bug in the normalization of the DAPI_CONFOCAL channel causing
+Note, there is a bug in the normalization of the `DAPI_CONFOCAL` channel causing
 it to have a reduced dynamic range in the ground-truth image. Comparing the
 initial nuclear predictions with these, it is clear the network learned to match
 the reduced dynamic range.
@@ -221,5 +221,5 @@ others.
 ## TODOs
 
 1.  Fix the tests.
-1.  Fix the DAPI_CONFOCAL normalization bug for the Condition E data. Note: This bug was introduced after
+1.  Fix the `DAPI_CONFOCAL` normalization bug for the Condition E data. Note: This bug was introduced after
     data was generated for the paper.
