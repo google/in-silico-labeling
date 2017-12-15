@@ -9,10 +9,10 @@ Finkbeiner lab](https://gladstone.org/our-science/people/steve-finkbeiner) at
 Gladstone.
 
 This code in this repository can be used to run training and inference of our
-model on a single machine. It also contains a set of weights created by training
+model on a single machine, and can be adapted for distributed training. It also contains a set of weights created by training
 the model on the data in Conditions A, B, C, and D from the paper.
 
-This README will describe how to:
+This README will explain how to:
 
 1.  Restore the model from the provided checkpoint and run inference on an image
     from our test set.
@@ -46,6 +46,8 @@ We're using [Bazel](https://www.bazel.build/) to build the code and run tests.
 Though not strictly necessary, we suggest you install it (the rest of this
 README will assume you have it).
 
+This code has been tested in Debian 10.
+
 ### Data
 
 We'll work with the data sample in [`data_sample.zip`](https://storage.googleapis.com/in-silico-labeling/data_sample.zip)
@@ -77,6 +79,8 @@ this command from the project root:
       --read_pngs --dataset_eval_directory $(pwd)/data_sample/condition_b_sample \
       --infer_channel_whitelist DAPI_CONFOCAL,MAP2_CONFOCAL,NFH_CONFOCAL
 
+If you get a syntax error, make sure you're using Python 3, not Python 2.
+
 In the above:
 
 1.  `BASE_DIRECTORY` is the working directory for the model. It will be created
@@ -99,7 +103,7 @@ like this:
 </p>
 
 Each row is one of the whitelisted channels you provided; in this case it's one
-row for each of the `DAPI`, `MAP2`, and `NFH` channels. The boxes with the
+row for each of the `DAPI_CONFOCAL`, `MAP2_CONFOCAL`, and `NFH_CONFOCAL` channels. The boxes with the
 purple borders show the predicted images (in this case the medians of the
 per-pixel distributions). The boxes with the teal borders show the true
 fluorescence images. The boxes with the black borders show errors, with false
@@ -135,7 +139,8 @@ This should produce this target error panel:
 </p>
 
 
-This is like the error panels above, but it includes more statistics of the
+This is like the error panels above, but the first row is `DAPI_CONFOCAL` and the second is `CELLMASK_CONFOCAL`.
+And because we used `noinfer_simplify_error_panels` it includes more statistics of the
 pixel distribution. Previously, there was one purple-bordered box which showed the
 medians of the pixel distributions. Now there are four purple-bordered boxes which show,
 in order, the mode, median, mean, and standard deviation. There are now three
@@ -161,7 +166,7 @@ command like:
     export BASE_DIRECTORY=/tmp/isl
     bazel run isl:launch -- \
       --alsologtostderr --base_directory $BASE_DIRECTORY \
-      --mode TRAIN --metric LOSS \
+      --mode TRAIN --metric LOSS --master "" \
       --restore_directory $(pwd)/checkpoints \
       --read_pngs --dataset_train_directory $(pwd)/data_sample/condition_e_sample_B2 \
 

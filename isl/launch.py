@@ -144,8 +144,8 @@ flags.DEFINE_bool('infer_continuously', False,
                   'Whether to run inference in a while loop.')
 flags.DEFINE_string('infer_channel_whitelist', None,
                     'If provided, the channels to whitelist for inference.')
-flags.DEFINE_string('infer_simplify_error_panels', True,
-                    'Whether to simplify the error panels.')
+flags.DEFINE_bool('infer_simplify_error_panels', True,
+                  'Whether to simplify the error panels.')
 
 flags.DEFINE_float('augment_offset_std', 0.0,
                    'Augmentation noise corruption parameter.')
@@ -206,7 +206,6 @@ INPUT_CHANNEL_VALUES = [
     'BRIGHTFIELD',
     'PHASE_CONTRAST',
     'DIC',
-    # 'HPAM',
 ]
 TARGET_Z_VALUES = ['MAXPROJECT']
 TARGET_CHANNEL_VALUES = [
@@ -218,9 +217,6 @@ TARGET_CHANNEL_VALUES = [
     'MAP2_CONFOCAL',
     'ISLET_WIDEFIELD',
     'DEAD_CONFOCAL',
-    # 'RED',
-    # 'GREEN',
-    # 'BLUE',
 ]
 
 # The size of the extracted input patches.

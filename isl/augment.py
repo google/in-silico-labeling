@@ -53,7 +53,7 @@ def corrupt(offset_standard_deviation: float,
     labeled_tensor = lt.transpose(labeled_tensor,
                                   ['batch', 'row', 'column', 'channel'])
     [batch_size, num_rows, num_columns,
-     num_channels] = labeled_tensor.tensor.shape_as_list()
+     num_channels] = labeled_tensor.tensor.shape.as_list()
 
     axes = ['batch', 'row', 'column', 'channel']
     offset_lt = lt.LabeledTensor(

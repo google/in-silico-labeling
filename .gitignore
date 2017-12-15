@@ -1,0 +1,5 @@
+checkpoints.zip
+checkpoints/
+data_sample.zip
+data_sample/
+bazel-*
