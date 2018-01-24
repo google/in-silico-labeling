@@ -18,7 +18,7 @@ This README will explain how to:
     from our test set.
 1.  Train the pre-trained model on a new dataset (Condition E).
 
-Please note, this guide deviates from the way transfer learning is demonstrated in the paper.
+Please note, this README deviates from the way transfer learning is demonstrated in the paper.
 In the paper, the model is trained once on all datasets, including Condition E; this is also called multi-task learning.
 In this guide, we're starting with a pre-trained model on Conditions A, B, C, and D, and incrementally training it on Condition E.
 The benefit of the latter technique is it requires less time to learn a new task, but it is likely to overfit if overtrained (see below).
