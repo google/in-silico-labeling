@@ -184,7 +184,7 @@ command like:
       --master "" \
       --restore_directory $(pwd)/checkpoints \
       --read_pngs \
-      --dataset_train_directory $(pwd)/data_sample/condition_e_sample_B2 \
+      --dataset_train_directory $(pwd)/data_sample/condition_e_sample_B2
 
 By default, this uses the ADAM optimizer with a learning rate of 1e-4. If you
 wish to visualize training progress, you can run

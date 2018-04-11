@@ -70,6 +70,13 @@ For this dataset you can ignore the `is_mask` field, which should always be `fal
 ## License
 
 The data is licensed under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/).
+
+The following groups contributed to the creation of the dataset:
+
+1. The Rubin Lab at Harvard: Lab work and imaging for Condition A.
+1. The Finkbeiner Lab at Gladstone: Lab work and imaging for Conditions B, C, and D.
+1. Google Accelerated Science: Lab work and imaging for Condition E and preprocessing for Conditions A, B, C, D, and E.
+
 If you use the data, please cite our paper:
 
 TODO: Add reference.
