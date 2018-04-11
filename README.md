@@ -57,7 +57,7 @@ This code has been tested in Debian 10.
 We'll work with the data sample in [`data_sample.zip`](https://storage.googleapis.com/in-silico-labeling/data_sample.zip)
 (Warning: 2 GB download) and a checkpoint from the pre-trained model
 in [`checkpoints.zip`](https://storage.googleapis.com/in-silico-labeling/checkpoints.zip). If
-you have `gsutil` installed, you can also use the commands:
+you have [`gsutil`](https://cloud.google.com/storage/docs/gsutil) installed, you can also use the commands:
 
     gsutil -m cp gs://in-silico-labeling/checkpoints.zip .
     gsutil -m cp gs://in-silico-labeling/data_sample.zip .
