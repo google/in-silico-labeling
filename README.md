@@ -32,7 +32,7 @@ take full advantage of the 26 *z* depths in Condition E (the other conditions
 have 13 *z* depths).
 
 You can also find the complete set of preprocessed data used for the paper,
-along with predictions, [here](TODO).
+along with predictions, [here](data.md).
 
 *This is not an official Google product.*
 
@@ -237,6 +237,12 @@ Note, if we train too long the model will eventually overfit on the train data
 and predictions will worsen. This was not an issue in the paper, because there
 we simultaneously trained on all tasks, so that each task regularized the
 others.
+
+## Citing the code
+
+If you use this code, please cite our paper:
+
+TODO
 
 ## TODOs
 
