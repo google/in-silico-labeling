@@ -18,7 +18,7 @@ This README will explain how to:
     from our test set.
 1.  Train the pre-trained model on a new dataset (Condition E).
 
-Please note, this README deviates from the way transfer learning is demonstrated in the paper.
+Please note, the example in this README deviates from the way transfer learning is demonstrated in the paper.
 In the paper, the model is trained once on all datasets, including Condition E; this is also called multi-task learning.
 In this guide, we're starting with a pre-trained model on Conditions A, B, C, and D, and incrementally training it on Condition E.
 The benefit of the latter technique is it requires less time to learn a new task, but it is likely to overfit if overtrained (see below).
@@ -77,10 +77,14 @@ this command from the project root:
 
     export BASE_DIRECTORY=/tmp/isl
     bazel run isl:launch -- \
-      --alsologtostderr --base_directory $BASE_DIRECTORY \
-      --mode EVAL_EVAL --metric INFER_FULL --stitch_crop_size 1500 \
+      --alsologtostderr \
+      --base_directory $BASE_DIRECTORY \
+      --mode EVAL_EVAL \
+      --metric INFER_FULL \
+      --stitch_crop_size 1500 \
       --restore_directory $(pwd)/checkpoints \
-      --read_pngs --dataset_eval_directory $(pwd)/data_sample/condition_b_sample \
+      --read_pngs \
+      --dataset_eval_directory $(pwd)/data_sample/condition_b_sample \
       --infer_channel_whitelist DAPI_CONFOCAL,MAP2_CONFOCAL,NFH_CONFOCAL
 
 If you get a syntax error, make sure you're using Python 3, not Python 2.
@@ -129,10 +133,14 @@ To see how well the model can predict labels on the evaluation dataset *before* 
 
     export BASE_DIRECTORY=/tmp/isl
     bazel run isl:launch -- \
-      --alsologtostderr --base_directory $BASE_DIRECTORY \
-      --mode EVAL_EVAL --metric INFER_FULL --stitch_crop_size 1500 \
+      --alsologtostderr \
+      --base_directory $BASE_DIRECTORY \
+      --mode EVAL_EVAL \
+      --metric INFER_FULL \
+      --stitch_crop_size 1500 \
       --restore_directory $(pwd)/checkpoints \
-      --read_pngs --dataset_eval_directory $(pwd)/data_sample/condition_e_sample_B3 \
+      --read_pngs \
+      --dataset_eval_directory $(pwd)/data_sample/condition_e_sample_B3 \
       --infer_channel_whitelist DAPI_CONFOCAL,CELLMASK_CONFOCAL \
       --noinfer_simplify_error_panels
 
@@ -169,10 +177,14 @@ command like:
 
     export BASE_DIRECTORY=/tmp/isl
     bazel run isl:launch -- \
-      --alsologtostderr --base_directory $BASE_DIRECTORY \
-      --mode TRAIN --metric LOSS --master "" \
+      --alsologtostderr \
+      --base_directory $BASE_DIRECTORY \
+      --mode TRAIN \
+      --metric LOSS \
+      --master "" \
       --restore_directory $(pwd)/checkpoints \
-      --read_pngs --dataset_train_directory $(pwd)/data_sample/condition_e_sample_B2 \
+      --read_pngs \
+      --dataset_train_directory $(pwd)/data_sample/condition_e_sample_B2 \
 
 By default, this uses the ADAM optimizer with a learning rate of 1e-4. If you
 wish to visualize training progress, you can run
@@ -192,9 +204,13 @@ You can run this command to generate predictions:
 
     export BASE_DIRECTORY=/tmp/isl
     bazel run isl:launch -- \
-      --alsologtostderr --base_directory $BASE_DIRECTORY \
-      --mode EVAL_EVAL --metric INFER_FULL --stitch_crop_size 1500 \
-      --read_pngs --dataset_eval_directory $(pwd)/data_sample/condition_e_sample_B3 \
+      --alsologtostderr \
+      --base_directory $BASE_DIRECTORY \
+      --mode EVAL_EVAL \
+      --metric INFER_FULL \
+      --stitch_crop_size 1500 \
+      --read_pngs \
+      --dataset_eval_directory $(pwd)/data_sample/condition_e_sample_B3 \
       --infer_channel_whitelist DAPI_CONFOCAL,CELLMASK_CONFOCAL \
       --noinfer_simplify_error_panels
 
