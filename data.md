@@ -11,10 +11,10 @@ The data used for the paper come in four sets:
 
 These images may be viewed in a browser or downloaded in bulk using [`gsutil`](https://cloud.google.com/storage/docs/gsutil).
 The browser links are:
-[`train`](https://storage.googleapis.com/in-silico-labeling/paper_data/train),
-[`train_single_channel_images`](https://storage.googleapis.com/in-silico-labeling/paper_data/train_single_channel_images),
-[`test`](https://storage.googleapis.com/in-silico-labeling/paper_data/test), and
-[`test_single_channel_images`](https://storage.googleapis.com/in-silico-labeling/paper_data/test_single_channel_images).
+[`train`](https://storage.googleapis.com/in-silico-labeling/paper_data/train_data_index.html),
+[`train_single_channel_images`](https://storage.googleapis.com/in-silico-labeling/paper_data/train_single_channel_images_data_index.html),
+[`test`](https://storage.googleapis.com/in-silico-labeling/paper_data/test_data_index.html), and
+[`test_single_channel_images`](https://storage.googleapis.com/in-silico-labeling/paper_data/test_single_channel_images_data_index.html).
 
 To download in bulk, first install [`gsutil`](https://cloud.google.com/storage/docs/gsutil) and then execute command like this:
 
