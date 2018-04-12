@@ -71,7 +71,10 @@ For this dataset you can ignore the `is_mask` field, which should always be `fal
 
 If you use this data, please cite our paper:
 
-TODO
+Christiansen E, Yang S, Ando D, Javaherian A, Skibinski G, Lipnick S, Mount E, O'Neil A, Shah K, Lee A, Goyal P, Fedus W, Poplin R, Esteva A, Berndl M, Rubin L, Nelson P, Finkbeiner S. In silico labeling: Predicting fluorescent labels in unlabeled images. Cell. 2018; in press
+
+Note this citation will change when the paper is formally published on 2018 April 19.
+We'll provide a BibTeX entry at that point.
 
 ## License
 

@@ -1,12 +1,12 @@
 # In silico labeling: Predicting fluorescent labels in unlabeled images
 
-This is the code for [In silico labeling: Predicting fluorescent labels in
-unlabeled images](TODO) (TODO: Fix this link when the paper is available
-online). It is the result of a collaboration between [Google Accelerated
+This is the code for
+<a href="http://www.cell.com/cell/fulltext/S0092-8674(18)30364-7">In silico labeling: Predicting fluorescent labels in
+unlabeled images</a>. It is the result of a collaboration between [Google Accelerated
 Science](https://research.google.com/teams/gas/) and two external labs: the [Lee
 Rubin lab](https://hscrb.harvard.edu/res-fl-rubin) at Harvard and the [Steven
 Finkbeiner lab](https://gladstone.org/our-science/people/steve-finkbeiner) at
-Gladstone.
+Gladstone. See also [our blog post](https://research.googleblog.com/2018/04/seeing-more-with-in-silico-labeling-of_12.html).
 
 This code in this repository can be used to run training and inference of our
 model on a single machine, and can be adapted for distributed training. It also contains a set of weights created by training
@@ -242,10 +242,14 @@ others.
 
 If you use this code, please cite our paper:
 
-TODO
+Christiansen E, Yang S, Ando D, Javaherian A, Skibinski G, Lipnick S, Mount E, O'Neil A, Shah K, Lee A, Goyal P, Fedus W, Poplin R, Esteva A, Berndl M, Rubin L, Nelson P, Finkbeiner S. In silico labeling: Predicting fluorescent labels in unlabeled images. Cell. 2018; in press
+
+Note this citation will change when the paper is formally published on 2018 April 19.
+We'll provide a BibTeX entry at that point.
 
 ## TODOs
 
 1.  Fix the tests.
 1.  Fix the `DAPI_CONFOCAL` normalization bug for the Condition E data. Note: This bug was introduced after
     data was generated for the paper.
+1.  Update the paper reference and add BibTeX.
