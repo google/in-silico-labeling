@@ -242,14 +242,22 @@ others.
 
 If you use this code, please cite our paper:
 
-Christiansen E, Yang S, Ando D, Javaherian A, Skibinski G, Lipnick S, Mount E, O'Neil A, Shah K, Lee A, Goyal P, Fedus W, Poplin R, Esteva A, Berndl M, Rubin L, Nelson P, Finkbeiner S. In silico labeling: Predicting fluorescent labels in unlabeled images. Cell. 2018; in press
+Christiansen E, Yang S, Ando D, Javaherian A, Skibinski G, Lipnick S, Mount E, O'Neil A, Shah K, Lee A, Goyal P, Fedus W, Poplin R, Esteva A, Berndl M, Rubin L, Nelson P, Finkbeiner S. In silico labeling: Predicting fluorescent labels in unlabeled images. Cell. 2018
 
-Note this citation will change when the paper is formally published on 2018 April 19.
-We'll provide a BibTeX entry at that point.
+BibTeX:
+
+```bibtex
+@article{christiansen2018isl,
+  title={In silico labeling: Predicting fluorescent labels in unlabeled images},
+  author={Christiansen, Eric M and Yang, Samuel J and Ando, D Michael and Javaherian, Ashkan and Skibinski, Gaia and Lipnick, Scott and Mount, Elliot and O’Neil, Alison and Shah, Kevan and Lee, Alicia K and Goyal, Piyush and Fedus, William and Poplin, Ryan and Esteva, Andre and Berndl, Marc and Rubin, Lee L and Nelson, Philip and Finkbeiner, Steven},
+  journal={Cell},
+  year={2018},
+  publisher={Elsevier}
+}
+```
 
 ## TODOs
 
 1.  Fix the tests.
 1.  Fix the `DAPI_CONFOCAL` normalization bug for the Condition E data. Note: This bug was introduced after
     data was generated for the paper.
-1.  Update the paper reference and add BibTeX.
