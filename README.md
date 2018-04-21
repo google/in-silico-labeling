@@ -6,7 +6,7 @@ unlabeled images</a>. It is the result of a collaboration between [Google Accele
 Science](https://research.google.com/teams/gas/) and two external labs: the [Lee
 Rubin lab](https://hscrb.harvard.edu/res-fl-rubin) at Harvard and the [Steven
 Finkbeiner lab](https://gladstone.org/our-science/people/steve-finkbeiner) at
-Gladstone. See also [our blog post](https://research.googleblog.com/2018/04/seeing-more-with-in-silico-labeling-of_12.html).
+Gladstone. See also [our blog post](https://research.googleblog.com/2018/04/seeing-more-with-in-silico-labeling-of_12.html) and the [full dataset used for the paper, including many predictions we couldn't fit in the paper](data.md).
 
 This code in this repository can be used to run training and inference of our
 model on a single machine, and can be adapted for distributed training. It also contains a set of weights created by training
