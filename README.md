@@ -50,7 +50,9 @@ We're using [Bazel](https://www.bazel.build/) to build the code and run tests.
 Though not strictly necessary, we suggest you install it (the rest of this
 README will assume you have it).
 
-This code has been tested in Debian 10.
+This code has been tested in Debian 10 with TensorFlow 1.9 on a machine with 64 GB RAM.
+It is not optimized for memory use, and has been reported to fail with a Python `MemoryError` on a machine with 16 GB RAM.
+Based on tests with `ulimit`, we recommend using a machine with at least 32 GB RAM.
 
 ### Data
 
