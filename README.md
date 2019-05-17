@@ -52,7 +52,7 @@ README will assume you have it).
 
 This code has been tested in Debian 10 with TensorFlow 1.9 on a machine with 64 GB RAM.
 It is not optimized for memory use, and has been reported to fail with a Python `MemoryError` on a machine with 16 GB RAM.
-Based on tests with `ulimit`, we recommend using a machine with at least 32 GB RAM.
+Based on tests with `ulimit`, you may be able to squeak by with 32 GB RAM, but some users have reported needing 64 GB.
 
 ### Data
 
