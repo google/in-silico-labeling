@@ -36,6 +36,19 @@ along with predictions, [here](data.md).
 
 *This is not an official Google product.*
 
+## Disclaimers
+
+### This code is not being developed
+
+This code exists primarily to let readers reproduce some of the results in the *Cell* paper.
+We welcome pull requests, but sadly don't have the time to make improvements ourselves.
+If you want an easy-to-use, state-of-the-art, image-to-image predictor for your microscopy problem, you should probably look elsewhere.
+
+### This code is not suitable for *de novo* training
+
+This code does CPU fine-tuning on a single machine, while for the paper we used a distributed system consisting of many CPU workers.
+It would take a *long* time to train from scratch on a single workstation, and in any case training on CPUs is a much worse option now that it used to be - for a network like this it would make more sense to train on a GPU or TPU.
+
 ## Installation
 
 ### Code
