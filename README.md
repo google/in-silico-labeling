@@ -67,6 +67,16 @@ This code has been tested in Debian 10 with TensorFlow 1.9 on a machine with 64 
 It is not optimized for memory use, and has been reported to fail with a Python `MemoryError` on a machine with 16 GB RAM.
 Based on tests with `ulimit`, you may be able to squeak by with 32 GB RAM, but some users have reported needing 64 GB.
 
+#### Update on code installation (2020 October)
+
+As of 2020 October, TensorFlow 1.9 is no longer available for installation via `pip`.
+However, TensorFlow 1.15.4 is still available, and it appears to be compatible with the code.
+To install it, you can do something like the following:
+
+1. Create a `virtualenv` environment for Python 3.7, which is the latest version for which TensorFlow 1.15.4 is available via `pip`: `virtualenv -p python3.7 my_venv`. Then `source ./my_venv/bin/activate`.
+1. Install the Python packages: `pip install --upgrade pip`, `pip install tensorflow==1.15.4`, and `pip install --upgrade opencv-python`.
+1. Install Bazel as described above.
+
 ### Data
 
 We'll work with the data sample in [`data_sample.zip`](https://storage.googleapis.com/in-silico-labeling/data_sample.zip)
